@@ -1,0 +1,479 @@
+body {
+  background:#40a8ee url(../image/login/bg.jpg)no-repeat;
+}
+
+.main {
+	max-width: 360px;
+	margin: 0 auto;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.user-cotainer {
+	padding: 0;
+	margin: 0 auto;
+	background: #f3f5f7;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.55);
+	-moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.55);
+	box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.55);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+
+.logo {
+	background:url(../image/login/logo.png)no-repeat;
+	width: 188px;
+	height: 60px;
+	margin: 0 auto;
+}
+.slogan {
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+
+
+.user-cotainer .heading{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background: rgb(236, 239, 243);
+	background: -moz-linear-gradient(93deg, rgb(236, 239, 243) 50%, rgb(206, 209, 213) 100%);
+	background: -webkit-linear-gradient(93deg, rgb(236, 239, 243) 50%, rgb(206, 209, 213) 100%);
+	background: -o-linear-gradient(93deg, rgb(236, 239, 243) 50%, rgb(206, 209, 213) 100%);
+	background: -ms-linear-gradient(93deg, rgb(236, 239, 243) 50%, rgb(206, 209, 213) 100%);
+	background: linear-gradient(183deg, rgb(236, 239, 243) 50%, rgb(206, 209, 213) 100%);
+	margin: 0;
+	padding: 0;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-size: 20px;
+}
+.user-cotainer  .form-user{
+	padding: 35px;
+}
+.user-cotainer .checkbox {
+  font-weight: normal;
+}
+.user-cotainer .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.user-cotainer .form-control:focus {
+  z-index: 2;
+}
+
+.user-cotainer .input-group {
+	background: 
+}
+
+.user-cotainer .form-control  {
+	border: none;
+	background: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.user-cotainer .border-group {
+	border-radius: 4px;
+	border: 1px solid #d2d2d2;
+	margin-bottom: 20px;
+}
+
+.user-cotainer .border-group .input-group {
+	border-bottom: 1px solid #e9e9e9;
+}
+.user-cotainer .border-group .input-group:last-child {
+	border-bottom: none;
+}
+.user-cotainer .border-group .input-group-addon {
+	background: none;
+	border: none;
+	color:#c9c9c9;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	color: #FFF;
+}
+
+pre {
+	color: red;
+}
+
+body
+{
+	text-align: left;
+	padding: 0px;
+	height: 100%;
+	margin: 0px;
+	font-size:12px;
+	font-family:Tahoma, Helvetica, sans-serif;
+}
+#div_root
+{
+	position: relative;
+	background-image: url(image/bg_div_root.gif);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 25px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#div_search_control
+{
+	width: 100%;
+	background-image: url(image/bg_div_search_control.jpg);
+	background-repeat: repeat;
+}
+
+#div_content
+{
+	width: 100%;
+	height: 100%;
+	min-height: 400px;
+	background: url(image/bg_div_search_control.jpg) top left repeat-x;
+	text-align:left;
+}
+#div_add
+{
+	width:100%;
+	border:1px solid #000000;
+	text-align:right;
+	margin-right:5px;
+}
+#div_title
+{
+   border:1px solid #000000;
+   with:100%;
+   height:30px;
+
+}
+.span_title{
+
+	font-weight:bold;
+}
+.span_title_stt{
+
+	width:100px;
+}
+.span_title_title{
+
+	width:500px;
+	border:1px solid #100100100;
+}
+.td_border
+{
+	border-bottom:1px solid #999999;
+	border-left:1px solid #E1E1E1;
+}
+.tr_title
+{
+	 background:#3C619D;
+	 color:#FFFFFF;
+	 height:25px;
+	 font-weight:bold;
+}
+
+.td_active
+{
+	width:50px;
+	text-align:center;
+}
+.td_add_edit
+{
+	width:80px;
+	text-align:center;
+}
+.td_date
+{
+	width:100px;
+	text-align:center;
+}
+.td_address
+{
+	width:300px;
+	text-align:center;
+}
+.td_content_100,td_content_120,td_content_150,td_content_200
+{
+	width:10%;
+	text-align:left;
+}
+.td_content_120
+{
+	width:12%;
+}
+.td_content_150
+{
+	width:15%;
+}
+.td_content_200
+{
+	width:20%;
+}
+.image_link
+{
+	border:0px;
+	cursor:pointer;
+}
+.paging
+{
+	color:#FFFFFF; font-size:12px;
+	font-weight:bold;
+}
+.pointer{
+	cursor: pointer;
+}
+/*------------------------------------------------------------*/
+/* Style cho the link                                         */
+a:link, a:visited, a:hover
+{
+	color: #18397E;
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+/*------------------------------------------------------------*/
+/* ?ặt style cho Text 										  */
+.text_format_normal /* Dung cho kiểu chữ thuong */
+{
+	font-style: normal;
+}
+.text_format_italic /* Dung cho kiểu chữ nghiêng */
+{
+	font-style: italic;
+}
+.text_format_bold /* Dung cho kiểu chữ đậm*/
+{
+	font-weight: bold;
+}
+.text_size_11 /* Dung cho kiểu chữ cỡ 11*/
+{
+	font-size: 11px;
+}
+.text_size_12 /* Dung cho kiểu chữ cỡ 12*/
+{
+	font-size: 12px;
+}
+.text_size_13 /* Dung cho kiểu chữ cỡ 13*/
+{
+	font-size: 13px;
+}
+.text_size_14 /* Dung cho kiểu chữ cỡ 14*/
+{
+	font-size: 14px;
+}
+.text_size_18 /* Dung cho kiểu chữ cỡ 18*/
+{
+	font-size: 18px;
+}
+
+/*-----------------------------------------------------------------------*/
+/* CSS su dung cho the Button                                            */
+
+button,reset,submit{
+	border:1px solid gray;
+}
+.button_60, .button_100
+ {
+	border:1px solid #FFCC00;
+	font-weight:bold;
+	font-size:12px;
+	color:#333333;
+	height:21px;
+	cursor:pointer;
+	text-align:center;
+	background:url(../image/bg_button.gif) repeat-x;
+}
+
+.button_60 /* CSS su dung cho button dac biet - EX: Button "Dang ki" va "Tim kiem "o trang chu*/
+{
+	width: 60px;
+}
+.button_80 /* CSS su dung cho button dac biet - EX: Button "Dang ki" va "Tim kiem "o trang chu*/
+{
+	border:1px solid gray
+}
+.button_100 /* CSS su dung cho button dac biet - EX: Button "Dang ki" va "Tim kiem "o trang chu*/
+{
+	width: 100px;
+}
+
+/*-------------------------------------------------------------------*/
+/*CSS su dung chung cho cac the  Textbox                             */
+
+.textbox_80, .textbox_100, .textbox_150, .textbox_200, .textbox_250
+{
+	border:1px solid #C2CBCD;
+	padding:1px;
+	padding-bottom:1px;
+	background:#FFFFFF;
+	font-size:12px;
+	color:#333333;
+	text-align:left;
+}
+
+.textbox_80 /* CSS su dung cho Textbox binh thuong */
+{
+	width: 80px;
+}
+.textbox_100 /* CSS su dung cho Textbox binh thuong */
+{
+	width: 100px;
+}
+.textbox_150 /* CSS su dung cho Textbox binh thuong */
+{
+	width: 150px;
+}
+.textbox_200 /* CSS su dung cho Textbox binh thuong */
+{
+	width: 200px;
+}
+.textbox_250 /* CSS su dung cho Textbox dac biet*/
+{
+	width: 250px;
+}
+
+/*-----------------------------------------------------------*/
+/* CSS su dung cho cac the select                            */
+.combobox_80, .combobox_100, .combobox_150,.combobox_200,.combobox_250
+{
+	border:1px solid #7d7d7d;
+	padding-left:3px;
+	height:18px;
+	font-size:12px;
+	color:#333333;
+	text-align:left;
+}
+.combobox_80 /* CSS su dung cho Combobox binh thuong*/
+{
+	width: 80px;
+}
+.combobox_100 /* CSS su dung cho Combobox binh thuong*/
+{
+	width: 100px;
+}
+.combobox_150 /* CSS su dung cho Combobox binh thuong*/
+{
+	width: 150px;
+}
+.combobox_200 /* CSS su dung cho Combobox binh thuong*/
+{
+	width: 200px;
+}
+.combobox_250 /* CSS su dung cho cac Combobox dac biet*/
+{
+	width: 250px;
+}
+
+/*****************************************************/
+/* Xay dung he thong datagrid quan ly                    */
+
+#table
+{
+	border:1px #7c8494 solid;
+	color:#747c8c;
+}
+.tr_mau1
+{
+	background:#FFFFFF;
+	height:23px;
+}
+.tr_mau2
+{
+	background:#EFEFEF;
+	height:23px;
+}
+.tr_hover
+{
+	background:#E1FDF5;
+	height:23px;
+}
+
+
+.paging_div {
+	color: #2238be;
+	font-family:Tahoma, Helvetica, sans-serif;
+	font-size:11px;
+}
+.paging_div span A:link, .paging_div span A:visited {
+	text-decoration: none;
+	color:#666666;
+	font-size:11px;
+}
+.paging_div span A:hover{
+	text-decoration: underline;
+	font-weight: bold;
+}
+.paging_current_class{
+	font-weight: bold;
+	color:#2238be;
+	text-decoration:underline;
+}
+.paging_link_class{
+	font-weight: normal;
+	color: #2238be;
+	border: none;
+}
+
+.span_a_class
+{
+	background-color:#D9D9D9;
+	border:1px solid gray;
+	font-weight:bold;
+}
+
+.span_select_class
+{
+	font-weight:bold;
+	background-color:#FD8105;
+	color:#FFFFFF;
+	border:1px solid gray;
+}
+.td_border
+{
+	border-bottom:1px solid #999999;
+	border-left:1px solid #E1E1E1;
+}
+.tr_title
+{
+	 background:#3C619D;
+	 color:#FFFFFF;
+	 height:25px;
+	 font-weight:bold;
+}
+.td_index
+{
+	width:20px;
+	text-align:center;
+}
+
+.td_add_edit
+{
+	width:80px;
+	text-align:center;
+}
+.td_date
+{
+	width:100px;
+	text-align:center;
+}

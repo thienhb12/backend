@@ -1,0 +1,3 @@
+{php}
+	loadModule('admin');
+{/php}

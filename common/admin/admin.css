@@ -1,0 +1,97 @@
+.form-control {
+	color: #000;
+}
+.text-red  {
+	color: red;
+}
+
+.glyphicon-plus,
+.btn-add {
+	font-size: 16px;
+	line-height: 1.33;
+	color: #FFF !important;
+}
+#pager {
+	text-align: center;
+}
+
+.glyphicon-refresh-animate {
+	-animation: spin .7s infinite linear;
+	-webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+	from { -webkit-transform: rotate(0deg);}
+	to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+	from { transform: scale(1) rotate(0deg);}
+	to { transform: scale(1) rotate(360deg);}
+}
+
+#list-step {
+	padding-top: 20px;
+}
+
+.wellcome-list .item {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.wellcome-list .item img {
+	width: 90px;
+	border: 1px solid #EEE;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+table {
+	border-collapse:collapse;
+	width: 100%;
+	font-size: 9pt;
+}
+
+#frmAdmin td, #frmAdmin th,
+#frmCategory td, #frmCategory th,
+#frmGuild td, #frmGuild th {
+	padding: 5px;
+}
+.caret {
+	margin-left: 7px;
+}
+
+.avatar-item img {
+	height: 120px;
+	max-width: 120px;
+}
+
+.avatar-item {
+	float: left;
+	width: 122px;
+	height: 122px;
+	margin-right: 10px;
+	border: 1px solid #CCC;
+	position: relative;
+}
+
+
+.avatar-item .close {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.select-avatar {
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+#tab-manage .pull-left,
+#tab-manage .pull-right {
+	width: 48%;
+}
+
+#search-image .form-horizontal {
+	background: #f1f1f1;
+	padding: 5px;
+}

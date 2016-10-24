@@ -1,0 +1,223 @@
+﻿/*
+Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.html or http://ckeditor.com/license
+*/
+
+CKEDITOR.dialog.add( 'VckmFile', function( editor )
+{
+	String.prototype.startWith = function(str) {
+		return (this.match("^"+str)==str);
+	};
+
+	String.prototype.trim = function() {
+		return this.replace(/^\s+|\s+$/g,"");
+	};
+	
+	CKEDITOR.dialog.insertFile = function (link, desc) {
+		
+	    var content;
+		var label = CKEDITOR.dialog.getCurrent().getContentElement('divFile', 'txtContent').getValue();
+		
+		if (!label || label == '' && desc) 
+			label = desc;
+		else if (!label || label == '') 
+			label = link.substring(link.lastIndexOf('/')+1,link.length);
+		
+		if(link.startWith("/")) {
+			content = '<a href="'+link+'">'+label+'</a>';
+		} else {
+			content = '<a href="/'+link+'">'+label+'</a>';
+		}
+		editor.insertHtml(content);
+		
+		CKEDITOR.dialog.getCurrent().hide();
+	};
+	
+	CKEDITOR.dialog.createFile = function() 
+	{
+		window.open("../file/filecreator.do");
+	};
+	
+	CKEDITOR.dialog.deleteFile = function (id) {
+		window.open("../upload/delete.do?id="+ id+"&type=others");
+	};
+	
+	CKEDITOR.dialog.fileUploadOk = function() {
+		CKEDITOR.dialog.get_file_list(1);
+	},
+	
+	CKEDITOR.dialog.get_file_list = function(pageNo) {
+		fileItemsPerpage = 10; 
+		var holder = document.getElementById("file_list");
+		holder.innerHTML = '<table style="width: 100%; text-align: center;"><tr><td style="text-align: center;"><img src="../images/v4/loading.gif" style="vertical-align: middle" /> Đang tải dữ liệu</td></tr></table>';
+		
+		var scope = CKEDITOR.dialog.getCurrent().getContentElement('divFile', 'scope').getValue();
+		var keword = CKEDITOR.dialog.getCurrent().getContentElement('divFile', 'keyword').getValue();
+		var url = '../system/viewreport?name=uploaded_file_xml&mode=dynamic&itemsperpage='+fileItemsPerpage+'&page=' + pageNo + '&keyword='+encodeURIComponent(keword)+'&scope='+scope;      
+
+		CKEDITOR.ajax.loadXml(url, function (xml) {
+			var holder = document.getElementById("file_list");
+			var content = "";
+
+			var rowSet = xml.baseXml.getElementsByTagName('ROWSET').item(0);
+		    var rowNum = rowSet.getElementsByTagName('ROW').length;
+			
+			for (i = 0; i < rowNum && i < fileItemsPerpage; i++) {
+				var file = rowSet.getElementsByTagName('ROW').item(i);
+				var fileId = file.getElementsByTagName('ID').item(0).childNodes.item(0).data;
+				var fileName = file.getElementsByTagName('FILE_NAME').item(0).childNodes.item(0).data;
+				var fileType = file.getElementsByTagName('OBJECT_TYPE').item(0).childNodes.item(0).data;
+				var fileDesc = file.getElementsByTagName('DESCRIPTION').item(0).childNodes.item(0).data;
+				
+				content += '<tr>';
+				//content += '<td style="padding-top: 2px; padding-bottom: 2px; font-size: 12px; border: 1px solid; border-collapse: separate">'+fileId+'</td>';
+				//content += '<td style="padding-top: 2px; padding-bottom: 2px; font-size: 12px; border: 1px solid; border-collapse: separate">'+fileType+'</td>';
+				content += '<td style="padding-top: 2px; padding-bottom: 2px; font-size: 12px; border: 1px solid; border-collapse: separate"><div style="width: 200px; overflow: hidden; word-wrap: break-word;">'+fileName+'</div></td>';				
+				content += '<td style="width: 250px; padding-top: 2px; padding-bottom: 2px; font-size: 12px; border: 1px solid; border-collapse: separate;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">'+fileDesc+'</td>';
+				content += '<td style="text-align: center; padding-top: 2px; padding-bottom: 2px; font-size: 12px; border: 1px solid; border-collapse: separate">'+"<a style='cursor: pointer;color: blue' href='javascript:CKEDITOR.dialog.insertFile(\""+fileName+"\",\""+fileDesc+"\")'>Ch&#232;n v&#224;o b&#224;i</a> "
+					+ " | <a style='cursor: pointer;color: blue' href='javascript:CKEDITOR.dialog.deleteFile("+fileId+")'>Delete</a> "
+					+ '</td>';
+				content += '</tr>';
+			}
+			
+            var pagination_area = '';
+			if (content == "") {
+				content = "<tr><td>Không có kết quả</td></tr>";
+			} else {
+                if (pageNo > 1) {					   
+                       pagination_area += '<td style="text-align:left; border:0;" nowrap="nowrap"><a style="cursor: pointer;color: blue" href="javascript: CKEDITOR.dialog.get_file_list('
+                                                +(pageNo - 1)
+                                                +')"> Trang trước </a></td>';
+                } else {
+                		pagination_area += '<td style="border:0;" nowrap="nowrap"></td>';
+                }
+                
+                if (rowNum > fileItemsPerpage)
+                {
+                    pagination_area += '<td></td><td style="text-align:right; border:0;" nowrap="nowrap"><a style="cursor: pointer;color: blue" href="javascript: CKEDITOR.dialog.get_file_list('+(pageNo+1)+')"> Trang sau </a></td>';					   
+                }			   
+                else
+                {
+                   pagination_area += '<td style="border:0;" nowrap="nowrap"></td>';
+                }
+                content = '<tr>' + pagination_area + '</tr>' + content + '<tr>' + pagination_area + '</tr>';
+            }                         
+			holder.innerHTML = '<table style="width: 98%; border-collapse: separate; border-spacing: 3px" border="1" cellspacing="1" cellpadding="3" width="98%" id="file_items">' + content + '</table>';
+		});
+	};	
+	return {
+		title : 'Chèn tập tin',
+		width : 600,
+		minHeight : 350,
+		onShow : function()
+		{
+			CKEDITOR.dialog.get_file_list(1);
+		},
+		contents : [
+			{
+				id : 'divFile',
+				label : 'Tìm tập tin',
+				title : 'Tìm tập tin',
+				elements : [
+						{
+							type: 'hbox',
+							widths : [ '100px', '300px', '200px', '50px'],
+							children: 
+								[
+									{
+										id : 'scope',
+										type : 'select',
+										width: 100,
+										style: 'width: 100px',
+										label : 'Phạm vi',
+										'default' : 'all',
+										items :
+										[
+											[ 'Của tôi', 'mine'],
+											[ 'Tất cả', 'all' ],
+										],
+										onChange : function()
+										{
+											CKEDITOR.dialog.get_file_list(1);
+										}
+									},
+									 {
+										 type: 'html',
+										 html: '<div />'
+									 }
+									 ,
+									 {
+										id : 'keyword',
+										type : 'text',
+										label : 'Từ khoá',
+										'default' : ''
+									 }
+									 ,
+									 {
+										type : 'button',
+										label : 'Tìm kiếm',
+										style : 'display:inline-block;margin-top:13px;',
+										align : 'center',
+										onClick: function() {
+											CKEDITOR.dialog.get_file_list(1);
+										}
+									 }
+								]
+						},
+						{
+							type : 'vbox',
+							height : 350,
+							children :
+							[
+								{
+									type : 'html',
+									id : 'FileListContainer',
+									height: 350,
+									style : 'width:95%;',
+									html: '<div id="file_list" style="text-align: center;overflow: auto;height: 260px;"><table width="100%"><tr><td style="text-align: center; font-weight: bold;">Nhấn nút tìm kiểm để tải dữ liệu</td></tr></table></div>'
+								}
+							]
+						}
+						,
+						{
+							type: 'hbox',
+							widths : ['', '50px', '150px'],
+							children: 
+								[
+									{
+										type: 'html',
+										html: '<div />'
+									}
+									,
+									{
+										type : 'html',
+										html: '<span>Text</span>'
+										//style : 'display:inline-block;margin-top:13px;'
+									}
+									,
+									{
+										id : 'txtContent',
+										type : 'text',
+										'default' : ''
+									}
+								]
+						}						
+					]
+			}
+			,
+			{
+				id : 'Upload',
+				label : editor.lang.image.upload,
+				elements :
+				[
+					{
+						type : 'html',
+						style: 'overflow: none',
+						html: '<IFRAME style="width:100%; height: 300px;" frameborder="0" src="../upload/miniUpload.do?type=others&callback=CKEDITOR.dialog.fileUploadOk" />'
+					}
+				]
+			}			
+		],
+		buttons : [ CKEDITOR.dialog.cancelButton ]
+	};
+} );

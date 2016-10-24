@@ -1,0 +1,52 @@
+ @charset "utf-8";
+/* CSS Document */
+
+body
+{
+	background-color:#000000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.contentner
+{
+	background-color:#000000;
+	margin: 0 auto;
+	
+	float:left;
+	width:1000px;
+}
+
+.login_img
+{
+	background-image:url(/images/icon/login.gif);
+	background-repeat:no-repeat;
+	width:486px;
+	height:275px;
+	float:left;
+	background-position:center;
+	padding-top:300px;
+	margin-left:300px;
+	*margin-top:20px;
+}
+
+.form_login{
+    position:relative;
+	top:-80px;
+	*top:-140px;
+	margin-left:240px;
+}
+
+td.user_name
+{
+	background-image:url(/images/icon/tendn.gif);
+	width:118px;
+	height:32px;
+	background-repeat:no-repeat;
+}
+td.pass
+{
+	background-image:url(/images/icon/pass.gif);
+	width:75px;
+	height:36px;
+	background-repeat:no-repeat;
+}

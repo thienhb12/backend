@@ -1,0 +1,112 @@
+{literal}
+<script>
+	function validate_form(){
+		var frm = document.frmContact;
+		var email = frm.email.value;
+		var apos=email.indexOf("@");
+		var dotpos=email.lastIndexOf(".");
+		if(frm.fullname.value == '')
+		{
+			alert("Mời bạn nhập họ tên!");
+			frm.fullname.focus();
+			return false;
+		}
+		if(email == '')
+		{
+			alert("Mời bạn nhập địa chỉ email!");
+			frm.email.focus();
+			return false;
+		}
+		else if (apos<1||dotpos-apos<2){
+			alert("Địa chỉ email không đúng định dạng!");
+			frm.email.select();
+			return false;
+		}
+		if(frm.subject.value == '')
+		{
+			alert("Mời bạn nhập tiêu đề bài gửi!");
+			frm.subject.focus();
+			return false;
+		}
+		if(frm.content.value == '')
+		{
+			alert("Mời bạn nhập nội dung bài gửi!");
+			frm.content.focus();
+			return false;
+		}
+
+		if ( frm.txt_captcha.value == '')
+			{
+				alert ("Bạn chưa nhập mã bảo vệ!");
+				frm.txt_captcha.focus();
+				return false;
+			}
+
+		return true;
+	}
+</script>
+{/literal}
+
+<div class="box">
+	<div class="line-hor">
+		<h1 class="title color7">{#CONTACT#}</h1>
+	</div>
+	<div class="inner2">
+		<div class="mrb10">
+		<p><b>Công ty Cổ Phần Ứng dụng Phát triển Giáo dục ONP</b></p>
+		<p><b>Địa chỉ</b>:Số 6A/ 92 - Vũ Trọng Phụng – Thanh Xuân Trung- Hà Nội
+		<p><b>VPGD</b>: 15 nhà N3 Khu TT Binh đoàn 12, tổ 57 Vĩnh Hồ, P. Thịnh Quang, Q. Đống Đa, Hà Nội</p>
+		<p><b>Tell</b>: 0466.719.584</p>
+		<p><b>Hotline</b>: 0983.212.774 - 0986.311.411</p>
+		<p><b>Email</b>: onp.sohocvui@yahoo.com</p>
+		<p><b>Web</b>: onp.edu.vn</p>
+		<p>ONP luôn trân trọng ý kiến đóng góp cũng như những đề nghị hợp tác của quý vị. Xin hãy gởi thư cho chúng tôi qua email hoặc dùng mẫu sau:</p></div>
+		<table align="left" width="100%" cellpadding="3" cellspacing="3" border="0" style="text-transform:none;">
+			<form action="" method="post" name="frmContact" onsubmit="return validate_form()">
+				<tr>
+					<td colspan="2" class="error">{$msg}</td>
+				</tr>
+				<tr>
+					<td>{#fullname#}<span>*</span>:</td>
+					<td><input type="text" name="fullname" class="text" value="{$smarty.post.fullname}" /></td>
+				</tr>
+				<tr>
+					<td>{#email#}<span>*</span>:</td>
+					<td><input type="text" name="email" class="text" value="{$smarty.post.email}" /></td>
+				</tr>
+				<tr>
+					<td align="left" width="24%" style="text-align:left;">{#address#}:</td>
+					<td width="76%" ><input type="text" name="address" class="text" value="{$smarty.post.address}" /></td>
+				</tr>
+				<tr>
+					<td>{#phone#}:</td>
+					<td><input type="text" name="phone" class="text" value="{$smarty.post.phone}" /></td>
+				</tr>
+				<tr>
+					<td> {#fax#}</td>
+					<td><input type="text" name="fax" class="text" value="{$smarty.post.fax}" /></td>
+				</tr>
+				<tr>
+					<td> {#subject#}<span>*</span>:</td>
+					<td>
+						<input type="text" name="subject" class="text" value="{$smarty.post.subject}" />
+					</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top" style="text-align:left"> {#content#}<span>*</span>:</td>
+					<td>
+						<textarea name="content" class="content">{$smarty.post.content}</textarea></td>
+				</tr>
+				<tr>
+					<td> {#captcha#}<span>*</span>:</td>
+					<td><img src="{$smarty.const.SITE_URL}lib/captcha/captcha.class.php" align="left" border="1"  style="margin-right:5px; width: 150px; height: 33px;" id="imgCaptcha"><input type="text" name="captcha"  style="height:17px; width:100px;"/></td>
+				</tr>
+				<tr>
+					<td align="left">&nbsp;</td>
+					<td align="left"><input type="submit" value="{#send_contact#}" />&nbsp;</td>
+				</tr>
+			</form>
+		</table>
+		<div class="clear"></div>
+	</div>
+ </div>

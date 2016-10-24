@@ -1,0 +1,252 @@
+{config_load file=$smarty.session.lang_file}
+{$menu}
+<script type="text/javascript" src="{$path}/datagrid.js"></script>
+<div class="content-wrapper">
+	<div class="page-header page-header-default">
+		<div class="page-header-content">
+			<div class="page-title">
+				<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">{$root_path}</span></h4>
+			</div>
+		<a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+	</div>
+	
+	<div class="content">
+		<div class="panel panel-flat">
+			<div class="panel-heading">
+				<div class="heading-elements">
+					<ul class="icons-list">
+                		<li><a data-action="collapse"></a></li>
+                		<li><a data-action="reload"></a></li>
+                		<li><a data-action="close"></a></li>
+                	</ul>
+            	</div>
+				<a class="heading-elements-toggle"><i class="icon-more"></i></a>
+			</div>
+			<form name="for_datagrid" action="" method="get">
+				<input type="hidden" name="mod" value="{$smarty.get.mod}">
+				<input type="hidden" name="amod" value="{$smarty.get.amod}">
+				<input type="hidden" name="atask" value="{$smarty.get.atask}">
+				<input type="hidden" name="sys" value="{$smarty.get.sys}" />
+				<input type="hidden" name="task" value="{$smarty.get.task}" />
+				<input type="hidden" name="sort_by" value="{$sort_by}">
+				<input type="hidden" name="sort_value" value="{$sort_value}">
+				<input type="hidden" name="id" value="{$smarty.get.id}">
+				<div id="DataTables_Table_3_wrapper" class="dataTables_wrapper no-footer">
+					<div class="datatable-header">
+						<div id="DataTables_Table_3_filter" class="dataTables_filter">
+							{if $arr_filter != ''}
+								{foreach item=row from=$arr_filter name=filter}
+									
+									{if $row.type == 'date'}
+									<label>
+										<input type="text" class="form-control"  name="{if $row.name != ''}{$row.name}{else}{$row.field}{/if}" id="{if $row.name != ''}{$row.name}{else}{$row.field}{/if}" value="{$row.selected}" {if $row.style != ''} style="{$row.style}"{/if}  placeholder="{$row.display}" />
+										<img src="{$path}/calendar/images/lich.gif" id="img_{$smarty.foreach.filter.index}" onclick="displayCalendar(document.getElementById({if $row.name != ''}'{$row.name}'{else}'{$row.field}'{/if}),'yyyy-mm-dd',this)" />
+									</label>
+									{elseif $row.type=='text'}
+										<label>
+											<span>Filter:</span> 
+											<input class="form-control"  type="text" name="{if $row.name != ''}{$row.name}{else}{$row.field}{/if}" value="{$row.selected}" placeholder="{$row.display}" style="{$row.style}" />
+										</label>
+									{else}
+										<label>
+											<select class="form-control" name="{if $row.name != ''}{$row.name}{else}{$row.field}{/if}" id="{if $row.name != ''}{$row.name}{else}{$row.field}{/if}" {if $row.style != ''} style="{$row.style}"{/if}  onchange="{$row.onchange}" >
+												{if $row.option_string == ''}
+													<option value="">---{#all#} {$row.display} ---</option>
+													{html_options options = $row.options selected = $row.selected}
+												{else}
+													{$row.option_string}
+												{/if}
+											</select>
+										</label>
+									{/if}
+									
+								{/foreach}
+									<label>
+										<input type="submit" name="bt_fillter" value="{#filter#}" style="width:30px"  class="btn btn-default "/>
+									</label>
+							{/if}
+						</div>
+					<!-- 	<div id="DataTables_Table_3_filter" class="dataTables_filter">
+						<label>
+							<span>Filter:</span> 
+							<input type="search" class="" name="filter_title" value="{#filter#}" placeholder="Type to filter..." aria-controls="DataTables_Table_3">
+						</label>
+					</div> -->
+						<div class="dataTables_length" id="DataTables_Table_2_length">
+							{if $arr_action && $has_action && $has_action_add}
+								<a  href="javascript:{if $arr_action[0].action!= ''}{$arr_action[0].action}{else}redirect_url('{$submit_url}&task=add');{/if}" class="btn btn-success"><i class="icon-plus2 position-right"></i> {#addnew#} </a>
+							{/if}
+						</div>
+					</div>
+
+					<div class="datatable-scroll">
+						<table class="table datatable-show-all dataTable no-footer" id="DataTables_Table_0">
+							<thead>
+								<tr role="row">
+									<th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">STT
+									</th>
+									{foreach item=row from=$arr_cols}
+										{if $row.visible == '' || $row.visible != 'hidden'}
+											<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">{$row.display}
+												{if $row.sortable}
+												<i class="icon-arrow-up12" onclick="for_datagrid.sort_by.value='{$row.field}'; for_datagrid.sort_value.value='asc'; for_datagrid.submit();" style="cursor:pointer"></i>
+												
+												{/if}
+												
+												{if $row.sortable}
+												<i class="icon-arrow-down12 " onclick="for_datagrid.sort_by.value='{$row.field}'; for_datagrid.sort_value.value='desc'; for_datagrid.submit();" style="cursor:pointer"></i>
+											
+												{/if}
+												{if $row.datatype == 'order' && $arr_value}<img src="{$path}/images/save.png" style="cursor:pointer" title="Lưu thứ tự" border="0" onclick="save_order();"/>{/if}
+												{if $row.datatype == 'quantity' && $arr_value}<img src="{$path}/images/save.png" style="cursor:pointer" title="Lưu số lượng" border="0" onclick="save_quantity();"/>{/if}
+											</th>
+										{/if}
+									{/foreach}
+									<th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 100px;">Actions</th>
+								</tr>
+							</thead>
+							<tbody>	
+								{foreach name=value item=row from=$arr_value}
+									<tr role="row" class="odd">
+										<td class="sorting_1">{$smarty.foreach.value.index+$index_start}</td>
+										{foreach key=key item=item from=$arr_cols name=col}
+											{if $item.visible == '' || $item.visible != 'hidden'}
+												<td>
+													{if $item.link != ''} <a href="{$item.link}&{$item.field}={$row[$item.field]}&id={$row[$pkey]}">{/if}
+													{if $item.value_cores != ''}
+														{foreach key=ref item=cor from=$item.value_cores}
+															{if $ref == $row[$item.field]}
+																{$cor}
+															{/if}
+														{/foreach}
+													{else}
+														{if $item.datatype=='img'}
+															{if $row[$item.field] != ''}
+															<a href="{$item.img_path}{$row[$item.field]}" onclick="return hs.expand(this)">
+																<img src="{$item.img_path}{$row[$item.field]}" width="40" border="0" title="{$row[$item.tooltip]}"/>
+															</a>
+															{else}
+															&nbsp;
+															{/if}
+														{elseif $item.datatype=='boolean'}
+															{if $row[$item.field]=='1' || $row[$item.field]=='t' ||$row[$item.field]=='active' }
+																<img src="{$path}/images/active.gif" border="0">
+															{else}
+																<img src="{$path}/images/deactive.gif" border="0">
+															{/if}
+														{elseif $item.datatype=='publish'}
+															{if $row[$item.field]=='1' || $row[$item.field]=='t' ||$row[$item.field]=='active' }
+																<span class="label label-success">{#publish_item#}</span>
+															{else}
+																<span class="label label-danger">{#unpublish_item#}</span>
+															{/if}
+														{elseif $item.datatype=='value_set'}
+															{foreach item=case from=$item.case key=key}
+																{if $row[$item.field] == $key}
+																	{$case}
+																{/if}
+															{/foreach}
+														{elseif $item.datatype=='number'}
+															{$row[$item.field]|number_format:0:",":"."}
+														{elseif $item.datatype=='float'}
+															{$row[$item.field]|number_format:3:".":","}
+														{elseif $item.datatype=='order'}
+															<input type="text" name="{$item.field}[{$row[$pkey]}]" value="{$row[$item.field]}" class="text" />
+														{elseif $item.datatype=='quantity'}
+															<input type="text" name="{$item.field}[{$row[$pkey]}]" value="{$row[$item.field]}" class="text" />
+														{elseif $item.editable == true}
+															 <input style="text-align:center" size="1" type="text" name="{$item.field}[{$row.id}]" value="{$row[$item.field]}">
+														{else}
+															{$row[$item.field]|default:'&nbsp;'}
+														{/if}
+													{/if}
+													{if $item.link != ''}</a>{/if}
+
+												</td>
+											{/if}
+										{/foreach}
+										{if  $has_action}
+											<td class="text-center">
+												<ul class="icons-list">
+													<li class="dropdown">
+														<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+															<i class="icon-menu9"></i>
+														</a>
+														
+														<ul class="dropdown-menu dropdown-menu-right">
+															{foreach item=item from=$arr_action}
+																{if $item.task != 'add' && is_array($item)}
+																	{if ($item.display == '') || ($item.operation == 'equal' && $row[$item.field]==$item.value) || ($item.operation == 'notequal' && $row[$item.field]!=$item.value)}
+																		<li>
+																			<a href="#" onclick="
+																			{if $item.confirm || $item.action}javascript:
+																				{if $item.action!=''} {$item.action}('{$row[$pkey]}')
+																				{else}
+																					{if $item.field_cascade != '' && $row[$item.field_cascade] != '' && $row[$item.field_cascade] != 0}
+																						confirm_redirect('{$item.confirm_cascade}', '{$submit_url}&task={$item.task}&id={$row[$pkey]}')
+																					{else}
+																						 confirm_redirect('{$item.confirm}', '{$submit_url}&task={$item.task}&id={$row[$pkey]}')
+																					{/if}
+																				{/if}
+																			{else} javascript:redirect_url('{$submit_url}&task={$item.task}&id={$row[$pkey]}') {/if}" title="{$item.tooltip}">
+																				{if $item.icon}<img src="{$path}/images/{$item.icon}" border="0" style="cursor:pointer;" />{$item.name}{else}{$item.name}{/if}
+																			</a>
+																		</li>
+																	{/if}
+																{/if}
+															{/foreach}
+														</ul>
+													</li>
+												</ul>
+											</td>
+										{else}
+											<td class="td_action {if !$smarty.foreach.value.last} td_border{else} td_border_left{/if}" style="width:{$action_width}px;"></td>
+										{/if}
+									</tr>
+								{/foreach}
+							</tbody>		
+						</table>
+					</div>
+
+					<div class="datatable-footer">
+					<div class="dataTables_info" id="DataTables_Table_2_info" role="status" aria-live="polite">
+						{#total_record#} {$number_record}
+					</div>
+					<div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_2_paginate">
+						{#number_record#}/{#page#}: <input  name="per_page" value="{$per_page|default:10}" style="width: 40px; text-align:center;" onKeyPress="if(event.keyCode==13) for_datagrid.submit();">&nbsp;&nbsp;
+						{if $page > 1}
+						<span onClick="for_datagrid.page.value=1; for_datagrid.submit();" style="cursor: pointer; padding-top:3px;">
+							<i class="icon-first"></i>
+						</span>
+						<span onClick="for_datagrid.page.value={$page-1}; for_datagrid.submit();" style="cursor: pointer">
+							<i class="icon-arrow-left7"></i>
+						</span>
+						{else}
+						<span>
+							<i class="icon-first"  style="color: #CCC"></i>
+							<i class="icon-arrow-left7"   style="color: #CCC"></i>
+						</span>
+						{/if}<img src="{$path}/images/grid-split.gif" border="0" />
+						{#page#}: <input name="page" value="{$page|default:1}" style="width: 20px; text-align:center;" onKeyPress="if(event.keyCode==13) for_datagrid.submit();" />
+						{#ofpage#} <strong>{$number_page}</strong>&nbsp;&nbsp;<img src="{$path}/images/grid-split.gif" border="0" />
+						{if $page < $number_page}
+						<span onClick="for_datagrid.page.value={$page+1}; for_datagrid.submit();" style="cursor: pointer;">
+							<i class="icon-arrow-right7"></i>
+						</span>
+						<span onClick="for_datagrid.page.value={$number_page}; for_datagrid.submit();" style="cursor: pointer;">
+							<i class="icon-last" ></i>
+						</span>
+						{else}
+						<span>
+							<i class="icon-arrow-right7" style="color: #CCC"></i>
+							<i class="icon-last" style="color: #CCC"></i>
+						</span>
+						{/if}&nbsp;
+						</div>
+					</div>
+				</div>
+			</form>
+
+		</div>		
+	</div>
+</div>

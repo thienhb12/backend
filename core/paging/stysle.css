@@ -1,0 +1,9 @@
+.paging_div{font-family:Arial, Helvetica, sans-serif;font-size:20px;}
+.paging_div span A:link, .paging_div span A:visited{text-decoration:none;color:#ccc;font-size:14px;}
+.paging_div span A:hover{text-decoration:underline;}
+.paging_current_class{font-weight:bold;color:#ccc;text-decoration:underline;}
+.paging_link_class{font-weight:normal;color:#ccc;border:none;}
+.span_select_class{color:#FFF;border:1px solid #CCC;background:#1b8ffa;}
+.paging{text-align:center;}
+.paging .span_select_class,.paging a {font: bold 25px tahoma}
+.paging .span_select_class {color: red}

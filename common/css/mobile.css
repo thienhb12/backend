@@ -1,0 +1,76 @@
+.main {
+	width: 100%;
+	margin: 0 auto;
+}
+
+a {color:#333;}
+a:hover{text-decoration:none; color: red;}
+
+a:hover .lead{color: #333;}
+
+h1.title {
+	margin-top: 0;
+	font-size: 18px;
+}
+.no-padding{padding:0 !important;}
+
+.items-list .item { border:1px solid #f4f4f4; width: 49%; display: inline-block; text-align: center; vertical-align: top; background: #FFFFFF; margin: 5px 7px 5px 0; position: relative; }
+.items-list .item{margin-right: 0; }
+.items-list .item.home_last {
+	margin-right: 0;
+}
+
+.items-list .item a { display: block; overflow: hidden; border: 2px solid #FFFFFF; padding: 5px; }
+..items-list .item a:hover { -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25); -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25); box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25); border: 2px solid #CCCCCC; }
+.items-list .item a div { display: block; height: 185px; overflow: hidden; padding-top: 20px; }
+.items-list .item a div img { height: 165px; vertical-align: middle; margin: auto;}
+.items-list .item  span.productName { font: 12px Arial, Verdana, sans-serif; color: #333; display: block; height: 33px; overflow: hidden; margin-bottom: 4px; margin-top: 5px; }
+.items-list .item  h3.productName { font: 12px Arial, Verdana, sans-serif; color: #333; display: block; height: 33px; overflow: hidden; margin-bottom: 4px; margin-top: 5px; }
+.items-list .item  span.productPrice { font: bold 15px Arial, Verdana, sans-serif; color: #ed1c24; display: block; border-top: 1px solid #d3d3d3; line-height: 25px; margin: 0 5px; }
+.items-list .item  span.productPrice.p-price { color: #dfdfdf; }
+.smallLabel.saleLabel {
+	background: url("../image/index-icons.png") no-repeat scroll -86px -120px rgba(0, 0, 0, 0);
+    right: 0;
+    width: 46px;
+	height:22px;
+	position:absolute;
+	color: #FFF;
+	text-align: right;
+	padding-right: 5px;
+	font-weight: bold;
+}
+.smallLabel.hotLabel {
+    background: url('../image/index-icons.png') no-repeat scroll 0 -120px rgba(0, 0, 0, 0);
+    right: 0;
+    width: 82px;
+	height:22px;
+	position:absolute;
+}
+.smallLabel.newLabel {
+   background:red;
+   position:absolute;
+   top:145px;
+   background:url("../image/index-icons.png") no-repeat scroll -138px -120px transparent;
+    width: 46px;
+	height:22px;
+	display:block;
+}
+
+#product-detail .avatar img {
+	width: 100%;
+}
+
+#product-detail {
+	margin-bottom: 15px;
+}
+
+#article .tab-pane {
+	padding: 10px 0;
+}
+
+#footer{
+  background-color: #222;
+  border-color: #080808;
+  color: #eee;
+  padding: 10px;
+}

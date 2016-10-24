@@ -1,0 +1,6 @@
+.dataTable thead .sorting:before,.dataTable thead .sorting:after,.dataTable thead .sorting:after, .dataTable thead .sorting_asc:after{content: ""}
+.sorting .icon-arrow-up12{position: absolute;top: 50%;right: 20px;font-size: 12px;margin-top: -6px;display: inline-block;line-height: 1;-webkit-font-smoothing: antialiased;  }
+.sorting .icon-arrow-down12{position: absolute;top: 60%;right: 20px;font-size: 12px;margin-top: -6px;display: inline-block;line-height: 1;-webkit-font-smoothing: antialiased;   }
+.table>thead>tr>th{font-size: 13px;}
+.dataTables_filter>label:after{content: ""}
+

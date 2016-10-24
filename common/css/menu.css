@@ -1,0 +1,178 @@
+		/*this is the css for the vertical version*/
+.vertical ul{list-style-type: none;padding: 0px; margin:0; width:100%;*margin:0px;}
+.vertical li img{margin:5px; float:left;}
+.vertical li a{display: block;line-height:17px;color:#000;font-size:12px; padding:10px 15px;text-decoration:none; background:#fff; }
+.vertical li a:hover{ text-decoration:underline;}
+.vertical li ul a{line-height:25px;}
+.vertical li li a{ line-height:17px; line-height:17px;color:#000;font-size:12px; padding:8px 0 8px 15px;text-decoration:none; background:#fef8fa;border-left:5px solid #df1f26;}
+.vertical li{display: inline;}
+.vertical li ul{position: absolute; margin:-37px 0 0 189px;_margin-left:75px;width:200x; }
+.vertical li ul ul{position: absolute; margin:-54px 0 0 175px;}
+.border_vertical{ height:3px; width:193px; background:#000;}
+
+
+
+		/*this is the css for the horizontal version*/
+		.horizontal ul{
+			list-style-type: none;
+			display: block;
+			height: 45px;
+			width:964px;
+			float:left;
+		}
+		.horizontal li{
+			float: left;
+			text-align:center;
+			display: inline;
+			position:relative;
+		}
+		.horizontal li a{
+			text-decoration: none;
+			height: 45px;
+			float: left;
+			display: block;
+			width: auto;
+			line-height:35px;
+		}
+		.horizontal li li a{
+			border-top: none;
+		}
+		.horizontal li ul{
+			position: absolute; 
+			margin-top: 45px;
+			width: 200px;
+			border: none;
+			display: block;
+			height: auto;
+			padding:0px;
+			background-color:#ededed;
+			border-left:1px solid #000;
+			border-right:1px solid #000;
+			z-index:9999;
+		}
+		.horizontal li li ul{
+			position: absolute;
+			margin-top: 0px;
+			margin-left: 180px;
+		}
+		.horizontal li ul li a{
+			width: 195px;
+			margin:0px;
+			padding:0px 0px 0px 5px;
+			text-align:left;
+			font-weight:normal;
+			color:#48484a;
+			height:28px;
+			line-height:28px;
+			border-bottom:solid 1px #000;
+		}
+		.horizontal li ul li a:hover{
+			background:none;
+			color:#86bf40;
+			font-weight:normal; 
+		}
+		/*This section makes the menu not work in non-javascript enabled browsers by not showing the menu by default-This can be worked around by making top level links point to a sitemap*/
+		/*Not sure if I recommend this or not*/
+		.inaccesible li ul{
+			display: none;
+		}
+		/*Arrow code - looks like <a class="haschild" href="#">Text <span>Arrow</span></a> can be turned on/off with arrow class*/
+		.arrow a span{
+		padding-left: 1em;
+		font-size: 85%;  
+		}
+		.arrow a:hover span{
+			padding-left: 2em;			
+		}
+		.arrow a span.noshow{
+			visibility: hidden;
+		}
+		/*Plus code*/
+		.plus a span{
+			padding-left: .5em;
+		}
+		/*colors for menu*/
+		.blackwhite li a{
+			background-color: white;
+			color: black;
+			border-color: black;
+		}
+		.blackwhite li a:hover{
+			color: white;
+			background:red;
+			border-color: black;
+		}
+		.blackwhite ul{
+			border-color: black;
+		}
+		
+		.bluewhite li a{
+			font-weight:400;
+			text-transform:none;
+		}
+		/*.bluewhite li a:hover{
+			background:url(../../view/images/bg_menu_active_1.gif) bottom center no-repeat; 
+			color:#000;
+		}*/
+.jqueryslidemenu{font: bold 14px Tahoma, Geneva, sans-serif;width: 1000px;}
+.jqueryslidemenu ul{margin: 0;padding: 0;list-style-type: none;}
+.jqueryslidemenu ul li{position: relative;display: inline;float: left;}
+.jqueryslidemenu ul li a{display: block;color: #000;text-decoration: none;}
+* html .jqueryslidemenu ul li a{ display: inline-block;}
+
+/*.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited{
+color: white;
+}*/
+.jqueryslidemenu ul li a:hover{
+color:#000;background:#f78f1e;
+/*background:url(../../view/images/background/bg_menu_active_gas.jpg);
+*/}
+
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+z-index:99;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{
+display: list-item;
+float: none;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{
+top: 0px;
+}
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a{
+font: normal 12px Tahoma, Geneva, sans-serif;
+width: 170px; /*width of sub menus*/
+padding: 8px 10px;
+background:#6a7982;
+color:#000;
+border-bottom:1px solid #000;
+margin: 0;
+*margin-top:-1px;
+border-top-width: 0;
+text-align:left; font-weight:400;
+}
+.jqueryslidemenuz ul li ul li a:hover{ color: #000; background:#f78f1e;}
+
+
+.downarrowclass{
+position: absolute;
+top: 12px;
+right: 7px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}

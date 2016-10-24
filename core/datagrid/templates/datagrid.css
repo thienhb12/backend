@@ -1,0 +1,136 @@
+/* CSS Document */
+html,body{	
+	margin:0px;
+	overflow:auto;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;	
+}
+
+table{
+	font-size:12px;		
+}
+
+a:visited,a:link{
+	color:#003366;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:#003366;
+	text-decoration:underline;
+}
+
+.td_index
+{
+	width:40px;
+	text-align: center;
+	padding-right: 3px;
+	color:#000000;
+}
+
+.td_check
+{
+	width:30px;
+	text-align: center;
+	color:#000000;
+}
+
+
+.td_border
+{
+	border-bottom:1px solid #999999;
+	border-left:1px solid #E1E1E1;
+}
+
+.td_border_left
+{
+	border-left:1px solid #E1E1E1;
+}
+
+.td_action
+{
+	text-align: center;
+	padding:2px;
+}
+
+.tr_mau1
+{
+	background:#FFFFFF;	
+	height:23px;
+}
+.tr_mau2
+{
+	background:#EFEFEF;
+	height:23px;
+}
+.tr_hover
+{
+	background:#E1FDF5;
+	height:23px;
+}
+
+.tr_title
+{
+	background:url(images/wbg.gif) repeat-x top left;
+	 height:28px;	 
+	 font-weight:bold;
+}
+
+.tr_paging
+{
+	 background-image:url(images/wbg2.gif);
+	 height:30px;
+}
+
+.div_filter
+{		
+	width: 100%;
+	height: 30px;	
+	text-align: left;
+	background-color:#F2F1F1;
+}
+
+.over{
+	color:#003399;
+	text-decoration:underline;
+}
+
+.out{
+	color:#003399;
+}
+
+#root
+{
+	width: 100%;
+	height: 27px;
+	text-align: left;
+	font-weight: bold;
+	background-color:#006182;
+	background:url(images/panel_title.gif) repeat-x;
+}
+
+.list-icon li a {
+	border:#dddddd solid 1px;
+	text-align:center;
+	margin: 5px;
+	padding: 5px;
+	text-decoration: none;
+}
+
+.list-icon li img {
+	height: 30px;
+}
+.list-icon li a:hover{
+	background-color: #ccc; 
+	border: red solid 1px;
+}
+
+
+.text {
+	width:40px;
+	height:18px;
+	font-size:11px;
+	margin-left: 20px;
+	text-align: center;
+}

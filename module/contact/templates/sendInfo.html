@@ -1,0 +1,112 @@
+{literal}
+<script>
+	function validate_form(){
+		var frm = document.frmContact;
+		var email = frm.email.value;
+		var apos=email.indexOf("@");
+		var dotpos=email.lastIndexOf(".");
+		if(frm.fullname.value == '')
+		{
+			alert("Mời bạn nhập họ tên!");
+			frm.fullname.focus();
+			return false;
+		}
+		if(email == '')
+		{
+			alert("Mời bạn nhập địa chỉ email!");
+			frm.email.focus();
+			return false;
+		}
+		else if (apos<1||dotpos-apos<2){
+			alert("Địa chỉ email không đúng định dạng!");
+			frm.email.select();
+			return false;
+		}
+		if(frm.subject.value == '')
+		{
+			alert("Mời bạn nhập tiêu đề bài gửi!");
+			frm.subject.focus();
+			return false;
+		}
+		if(frm.content.value == '')
+		{
+			alert("Mời bạn nhập nội dung bài gửi!");
+			frm.content.focus();
+			return false;
+		}
+
+		if ( frm.txt_captcha.value == '')
+			{
+				alert ("Bạn chưa nhập mã bảo vệ!");
+				frm.txt_captcha.focus();
+				return false;
+			}
+
+		return true;
+	}
+</script>
+{/literal}
+<div class="box-home box-list amthuc contact sendinfo">
+	<div class="box-header">
+		<blockquote><h2><a>{#SENDINFO#}</a></h2></blockquote>
+	</div>
+	<div class="box-body">
+		<div class="mrb10">{#sendinfomsg#}</div>
+		<table align="left" width="100%" cellpadding="5" cellspacing="3" border="0" style="text-transform:none;">
+			<form method="post" enctype="multipart/form-data" name="frmContact" onsubmit="return validate_form()">
+				<tr>
+					<td colspan="2" class="error">{$msg}</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="mrb5">{#nameinfo#}<span>*</span>:</div>
+						<div><input type="text" name="fullname" value="{$smarty.post.fullname}" class="text" /></div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="mrb5">{#addressinfo#}<span>*</span>:</div>
+						<div><input type="text" name="address" value="{$smarty.post.address}" class="text" /></div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="mrb5">{#phoneinfo#}<span>*</span>:</div>
+						<div><input type="text" name="phone" value="{$smarty.post.phone}" class="text" /></div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="mrb5">{#emailinfo#}<span>*</span>:</div>
+						<div><input type="text" name="email" value="{$smarty.post.email}" class="text" /></div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="mrb5">{#contentinfo#}<span>*</span>:</div>
+						<div><textarea name="content" value="{$smarty.post.content}" class="content"></textarea></div>
+					</td>
+				</tr>
+				<tr>
+					<td>Hình ảnh 1:</td><td><input type="file" name="file1" class="text" /></td>
+				</tr>
+				<tr>
+					<td>Hình ảnh 2:</td><td><input type="file" name="file2" class="text" /></td>
+				</tr>
+				<tr>
+					<td>Hình ảnh 3:</td><td><input type="file" name="file3" class="text" /></td>
+				</tr>
+				<tr>
+					<td> {#captcha#}<span>*</span>:</td>
+					<td><img src="{$smarty.const.SITE_URL}lib/captcha/captcha.class.php" align="left" border="1"  style="margin-right:5px;" id="imgCaptcha">
+					<input type="text" name="captcha"  style="height:17px; width:100px;"/></td>
+				</tr>
+				<tr>
+					<td align="left"><input type="submit" value="{#send_info#}" />&nbsp;</td>
+				</tr>
+			</form>
+		</table>
+		<div class="clear">.</div>
+	</div>
+	<div class="brb"><div><blockquote>&nbsp;</blockquote></div></div>
+</div>
