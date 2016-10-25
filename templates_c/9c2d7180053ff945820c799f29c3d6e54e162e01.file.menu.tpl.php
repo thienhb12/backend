@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-09-05 06:49:32
+<?php /* Smarty version Smarty-3.1.19, created on 2016-10-25 05:32:11
          compiled from "module\admin\templates\menu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:620957ccf95cedcd63-77243758%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c2d7180053ff945820c799f29c3d6e54e162e01' => 
     array (
       0 => 'module\\admin\\templates\\menu.tpl',
-      1 => 1472280673,
+      1 => 1477366014,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_57ccf95d020ed4_18052991',
   'variables' => 
   array (
     'menuItems' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'item' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_57ccf95d020ed4_18052991',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57ccf95d020ed4_18052991')) {function content_57ccf95d020ed4_18052991($_smarty_tpl) {?><div class="sidebar sidebar-main">
 	<div class="sidebar-content">
@@ -42,8 +42,8 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
 						<li class="<?php echo $_smarty_tpl->tpl_vars['subitem']->value['selected'];?>
 ">
-							<a href="?mod=admin&<?php echo $_smarty_tpl->tpl_vars['item']->value['link'];?>
-" class="has-ul"><i class="icon-stack2"></i> <span><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+							<a href="?mod=admin&<?php echo $_smarty_tpl->tpl_vars['item']->value['Link'];?>
+" class="has-ul"><i class="icon-stack2"></i> <span><?php echo $_smarty_tpl->tpl_vars['item']->value['Name'];?>
 </span></a>
 							<?php if (count($_smarty_tpl->tpl_vars['item']->value['submenu'])>0) {?>
 								<ul >
@@ -52,15 +52,15 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['subitem']->key => $_smarty_tpl->tpl_vars['subitem']->value) {
 $_smarty_tpl->tpl_vars['subitem']->_loop = true;
 ?>
-										<?php if (substr($_smarty_tpl->tpl_vars['subitem']->value['link'],0,7)!='http://') {?>
+										<?php if (substr($_smarty_tpl->tpl_vars['subitem']->value['Link'],0,7)!='http://') {?>
 											<li class="<?php echo $_smarty_tpl->tpl_vars['subitem']->value['selected'];?>
-"><a href="?mod=admin&<?php echo $_smarty_tpl->tpl_vars['subitem']->value['link'];?>
-"><?php echo $_smarty_tpl->tpl_vars['subitem']->value['name'];?>
+"><a href="?mod=admin&<?php echo $_smarty_tpl->tpl_vars['subitem']->value['Link'];?>
+"><?php echo $_smarty_tpl->tpl_vars['subitem']->value['Name'];?>
 </a></li>
 										<?php } else { ?>
 											<li class="<?php echo $_smarty_tpl->tpl_vars['subitem']->value['selected'];?>
-"><a href="<?php echo $_smarty_tpl->tpl_vars['subitem']->value['link'];?>
-"><?php echo $_smarty_tpl->tpl_vars['subitem']->value['name'];?>
+"><a href="<?php echo $_smarty_tpl->tpl_vars['subitem']->value['Link'];?>
+"><?php echo $_smarty_tpl->tpl_vars['subitem']->value['Name'];?>
 </a></li>
 										<?php }?>
 									<?php } ?>

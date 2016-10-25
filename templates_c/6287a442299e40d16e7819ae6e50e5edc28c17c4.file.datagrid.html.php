@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-09-05 06:49:35
+<?php /* Smarty version Smarty-3.1.19, created on 2016-10-25 05:17:38
          compiled from "G:\workspace\Backend_dqv2\core\datagrid\templates\datagrid.html" */ ?>
 <?php /*%%SmartyHeaderCode:251657ccf95f917ab7-84509068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6287a442299e40d16e7819ae6e50e5edc28c17c4' => 
     array (
       0 => 'G:\\workspace\\Backend_dqv2\\core\\datagrid\\templates\\datagrid.html',
-      1 => 1472458770,
+      1 => 1477359860,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_57ccf95fcc0e92_17744267',
   'variables' => 
   array (
     'menu' => 0,
@@ -44,8 +46,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'number_page' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_57ccf95fcc0e92_17744267',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57ccf95fcc0e92_17744267')) {function content_57ccf95fcc0e92_17744267($_smarty_tpl) {?><?php if (!is_callable('smarty_function_html_options')) include 'G:\\workspace\\Backend_dqv2\\core\\Smarty\\libs\\plugins\\function.html_options.php';
 ?><?php  $_config = new Smarty_Internal_Config($_SESSION['lang_file'], $_smarty_tpl->smarty, $_smarty_tpl);$_config->loadConfigVars(null, 'local'); ?>

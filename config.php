@@ -50,7 +50,7 @@ define("CATEGORIES", 'categories');
 define("ARTICLE", 'articles');
 
 // Define database info
-define("DB_NAME", "backend_dqv2");
+define("DB_NAME", "backend_demo");
 define("DB_USER", "root");
 define("DB_PASSWORD", "");
 

@@ -148,22 +148,22 @@ class admin extends Anpro_Module_Base  {
                 if ($_GET['sys']) $link.="&sys={$_GET['sys']}";
 
 		
-		$modules = $this -> getAll("SELECT * FROM tbl_sys_menu WHERE parent_id = 0 AND status=1 ORDER BY zindex ASC");
+		$modules = $this -> getAll("SELECT * FROM tbl_sys_menu WHERE ParentID = 0 AND Status=1 ORDER BY Zindex ASC");
 
 		$str_per = "";
 		//get parentId of permission
 		if(is_array($list_modul_of_user))
 			$str_per = implode(",",$list_modul_of_user);
-		$sql = "SELECT parent_id FROM tbl_sys_menu WHERE status = 1";
+		$sql = "SELECT ParentID FROM tbl_sys_menu WHERE Status = 1";
 		if($str_per != '') {
 			$sql .= " AND id IN ($str_per)";
 		}
-		$sql .= " ORDER BY zindex ASC";
+		$sql .= " ORDER BY Zindex ASC";
 		$arr_parent = $this -> getCol($sql);
 
 		//end
 		if ($modul) {
-			$module_id = $this -> getOne("SELECT id FROM tbl_sys_menu WHERE link LIKE '%amod=$modul%' AND parent_id = 0");
+			$module_id = $this -> getOne("SELECT id FROM tbl_sys_menu WHERE 	Link LIKE '%amod=$modul%' AND ParentID = 0");
 		}
 
 		$menuItems = array();
@@ -182,14 +182,13 @@ class admin extends Anpro_Module_Base  {
 		if(count($menuItems)) {
 			for($i = 0; $i < count($menuItems); $i++)
 			{
-				$sql = "SELECT * FROM tbl_sys_menu WHERE parent_id = ".$menuItems[$i]['id']." AND status=1";
+				$sql = "SELECT * FROM tbl_sys_menu WHERE ParentID = ".$menuItems[$i]['id']." AND Status=1";
 
 				if($str_per != '') {
 					$sql .= " AND id IN ($str_per)";
 				}
-				$sql .= " ORDER BY zindex ASC";
+				$sql .= " ORDER BY 	Zindex ASC";
 				$subs = $this -> db -> getAll($sql);
-
 				for($j = 0; $j < count($subs); $j++) {
 					$subs[$j]['selected'] = '';
 					if($link == $subs[$j]['link'] )
