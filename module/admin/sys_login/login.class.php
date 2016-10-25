@@ -55,14 +55,14 @@ class login extends Anpro_Module_Base
                     $_SESSION['lang_flag'] = $lang['flag'];
             }
 
-            $_SESSION['username']	=$row['username'];
-            $_SESSION['fullname']	=$row['fullname'];
-            $_SESSION['group_id']	=$row['group_id'];
-            $_SESSION['userid']	= $row['id'];
-            $_SESSION['logtime']    = $row['last_login_date'];
-            $_SESSION['logip']	= $row['last_login_ip'];
-            $result = $this -> db -> query("UPDATE {$this -> table} SET last_login_date = '".date("Y-m-d H:i:s")
-                                    ."', last_login_ip = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id']);
+									$_SESSION['username'] =$row['username'];
+									$_SESSION['fullname'] =$row['fullname'];
+									$_SESSION['group_id'] =$row['group_id'];
+									$_SESSION['userid']   = $row['id'];
+									$_SESSION['logtime']  = $row['last_login_date'];
+									$_SESSION['logip']    = $row['last_login_ip'];
+									$result               = $this -> db -> query("UPDATE {$this -> table} SET last_login_date = '".date("Y-m-d H:i:s")
+									."', last_login_ip    = '".$_SERVER['REMOTE_ADDR']."' WHERE id = ".$row['id']);
             echo '<script type="text/javascript">window.location.href="?mod=admin"</script>';
 		}else{
 			$error = 2;//
